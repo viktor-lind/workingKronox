@@ -18,7 +18,7 @@ public class parser {
 
 
 		public String toString(){
-			String string = startTime + " - " + endTime + " " + lokal + " "  + kurs;
+			String string = startTime + "-" + endTime + " " + lokal + " "  + kurs;
 			return string;
 		}
 		

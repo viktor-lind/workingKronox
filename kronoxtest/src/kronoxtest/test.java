@@ -22,10 +22,12 @@ public class test {
 		ArrayList<String> tList = new ArrayList<String>();
 		ArrayList<String> done = new ArrayList<String>();
 		ArrayList<parser> superDone = new ArrayList<parser>();
+		ArrayList<String> textName = new ArrayList<String>();
 		String room = null;
 		String teacher = null;
 		String startTid = null;
     	String slutTid = null;
+    	String roomText = null;
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try{
 			DocumentBuilder builder = factory.newDocumentBuilder();
@@ -90,20 +92,57 @@ public class test {
         {
             e.printStackTrace();
         }
-
+		
 		for(int h = 0; h < superDone.size(); h++){
+			
 			if(superDone.get(h).toString().contains("null")){
+				
+				
+				
 			}
 			else{
 			System.out.println(superDone.get(h).toString());
 			}
+            
+			
 		}
+		
 		/**for(int f = 0; f < tList.size(); f++){
 			System.out.println(tList.get(f));
 		}
 		for(int c = 0; c < time.size(); c++){
 			System.out.println(time.get(c));
 		}*/
+		DocumentBuilderFactory factory1 = DocumentBuilderFactory.newInstance();
+		try{
+			DocumentBuilder builder = factory1.newDocumentBuilder();
+			Document doc = builder.parse("http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=d&intervallAntal=1&forklaringar=true&sokMedAND=false&sprak=SV&resurser=l.NI%3AA0301%2Cl.NI%3AA0304%2Cl.NI%3AA0305%2Cl.NI%3AA0306%2Cl.NI%3AA0307%2Cl.NI%3AA0311%2Cl.NI%3AA0314%2Cl.NI%3AA0318%2Cl.NI%3AA0322%2Cl.NI%3AA0401%2Cl.NI%3AA0404%2Cl.NI%3AA0405%2Cl.NI%3AA0406%2Cl.NI%3AA0407%2Cl.NI%3AA0411%2Cl.NI%3AA0414%2Cl.NI%3AA0418%2Cl.NI%3AA0422%2Cl.NI%3AA0502%2Cl.NI%3AA0506%2Cl.NI%3AA0507%2Cl.NI%3AA0510%2Cl.NI%3AA0513%2Cl.NI%3AA0515%2Cl.NI%3AA0602%2Cl.NI%3AA0606%2Cl.NI%3AA0607%2Cl.NI%3AA0611%2Cl.NI%3AA0614%2Cl.NI%3AB0203%2Cl.NI%3AB0303%2Cl.NI%3AB0305%2Cl.NI%3AB0308%2Cl.NI%3AB0314%2Cl.NI%3AB0321%2Cl.NI%3AB0E07%2Cl.NI%3AB0E15%2Cl.NI%3AC0205%2Cl.NI%3AC0301%2Cl.NI%3AC0305%2Cl.NI%3AC0306%2Cl.NI%3AC0309%2Cl.NI%3AC0312%2Cl.NI%3AC0315%2Cl.NI%3AC0319%2Cl.NI%3AC0325%2Cl.NI%3AC0401%2Cl.NI%3AC0E11%2C");
+			NodeList bookings = doc.getElementsByTagName("kolumn");
+			for(int i = 0; i < bookings.getLength(); i++){
+				Node p = bookings.item(i);
+				if(p.getNodeType() == Node.ELEMENT_NODE){
+				Element booking = (Element) p;
+				String id = booking.getAttribute("rubrik");
+				/**System.out.println(id + " " + booking.getTextContent());*/
+				if(id.contains("KursNamn_SV")){
+					textName.add(booking.getTextContent());
+				}
+				
+				}
+				}
+				
+			
+		}
+		catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+		for(int i = 0; i < textName.size(); i++){
+			System.out.println(textName.get(i));
+		}
+		
+		
     }
 	
 
