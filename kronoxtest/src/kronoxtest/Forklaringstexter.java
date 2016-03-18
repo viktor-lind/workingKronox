@@ -24,7 +24,7 @@ public class Forklaringstexter {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		try{
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse("http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=m&intervallAntal=6&forklaringar=true&sokMedAND=false&sprak=SV&resurser=l.OR%3AB532%2Cl.OR%3AB533%2Cl.OR%3AB534%2Cl.OR%3AB535%2Cl.OR%3AB536%2Cl.OR%3AB537%2Cl.OR%3AE531%2Cl.OR%3AE532%2Cl.OR%3AE533%2Cl.OR%3AE534%2Cl.OR%3AE535%2Cl.OR%3AE536%2Cl.OR%3AE537%2Cl.OR%3AE538%2Cl.OR%3AE539%2Cl.OR%3AE540%2Cl.OR%3AE541%2C");
+			Document doc = builder.parse("http://schema.mah.se/setup/jsp/SchemaXML.jsp?startDatum=idag&intervallTyp=d&intervallAntal=1&forklaringar=true&sokMedAND=false&sprak=SV&resurser=l.NI%3AA0301%2Cl.NI%3AA0304%2Cl.NI%3AA0305%2Cl.NI%3AA0322%2Cl.NI%3AA0401%2Cl.NI%3AA0404%2Cl.NI%3AA0405%2Cl.NI%3AA0422%2Cl.NI%3AA0515%2Cl.NI%3AA0614%2Cl.NI%3AB0203%2Cl.NI%3AB0303%2Cl.NI%3AB0305%2Cl.NI%3AB0314%2Cl.NI%3AB0321%2Cl.NI%3AC0205%2Cl.NI%3AC0301%2Cl.NI%3AC0305%2Cl.NI%3AC0306%2Cl.NI%3AC0309%2Cl.NI%3AC0312%2Cl.NI%3AC0325%2Cl.NI%3AC0401%2C");
 			NodeList bookings = doc.getElementsByTagName("schemaPost");
 			for(int i = 0; i < bookings.getLength(); i++){
 				Node p = bookings.item(i);
@@ -41,7 +41,7 @@ public class Forklaringstexter {
 	        			Node node4 = node3.getAttributes().getNamedItem("startTid");
 	        			Node node5 = node3.getAttributes().getNamedItem("slutTid");
 	        			/**System.out.println(node4.getNodeValue() + " -  " + node5.getNodeValue());*/
-	        			System.out.println(node4.getNodeValue() + node5.getNodeValue());
+	        			
 	        			startTid = node4.getNodeValue();
 	        			slutTid = node5.getNodeValue();
 	        			
